@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Recipe
+from .models import Candidate
 
 
-class RecipeSerializer(serializers.ModelSerializer):
+class CandidateSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Recipe
-        fields = ("id", "name", "ingredients", "picture", "difficulty", "prep_time", "prep_guide")
+        model = Candidate
+        fields = ("id", "title", "picture", "author", "category", "description", "votes")

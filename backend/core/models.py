@@ -1,18 +1,16 @@
 from django.db import models
 
 
-class Recipe(models.Model):
-    DIFFICULTY_LEVELS = (
-        ('Easy', 'Easy'),
-        ('Medium', 'Medium'),
-        ('Hard', 'Hard'),
+class Candidate(models.Model):
+    CATEGORIES = (
+        ('Amatuer', 'Amatuer'),
+        ('Professional', 'Professional'),
     )
-    name = models.CharField(max_length=120)
-    ingredients = models.CharField(max_length=400)
+    title = models.CharField(max_length=120)
     picture = models.FileField()
-    difficulty = models.CharField(choices=DIFFICULTY_LEVELS, max_length=10)
-    prep_time = models.PositiveIntegerField()
-    prep_guide = models.TextField()
+    author = models.CharField(max_length=120)
+    category = models.CharField(choices=CATEGORIES, max_length=12)
+    votes = models.PositiveIntegerField()
 
     def __str_(self):
-        return "Recipe for {}".format(self.name)
+        return "Photo of {}".format(self.title)
